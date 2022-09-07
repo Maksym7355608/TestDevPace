@@ -1,14 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using TestDevPace.Business.Interfaces;
 using TestDevPace.Business.Models;
+using TestDevPace.Filters;
 
 namespace TestDevPace.Controllers
 {
     [Controller]
+    [ExceptionFilters]
     public class CustomerController : Controller
     {
         private ICustomerService customerService;
         private IAuthService authService;
+        private int userId => int.Parse(User.Claims.ElementAt(0).Value);
         public CustomerController(ICustomerService customerService, IAuthService authService)
         {
             this.customerService = customerService;

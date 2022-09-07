@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using TestDevPace.Business.Interfaces;
 using TestDevPace.Business.Models;
+using TestDevPace.Filters;
 
 namespace TestDevPace.Controllers
 {
+    [ExceptionFilters]
     public class AuthController : Controller
     {
         private IAuthService authService;
@@ -12,7 +16,7 @@ namespace TestDevPace.Controllers
         {
             this.authService = authService;
         }
-
+        
         public IActionResult SignIn()
         {
             return View();

@@ -21,5 +21,38 @@
     <input type="submit" value="Sign In" name="signIn"><br><br>
     </form>
     <a href="/Auth/SignUp" style="color: black; border: 1px; width: 20px; height: 10px;">Sign Up</a><br><br>
+
+    @*<script>
+        var tokenKey = "accessToken";
+        
+        document.getElementByName("signIn").addEventListener("click", async e => {
+            e.preventDefault();
+            
+            const response = await fetch("/Auth/SignIn", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    email: document.getElementByName("email").value,
+                    password: document.getElementByName("password").value
+                })
+            });
+            if(response.ok === true){
+                const data = await response.json();
+                sessionStorage.setItem(tokenKey, data.access_token);
+            }
+            else
+                console.log("Status: ", response.status);
+            }
+            sessionStorage.getItem(tokenKey);
+            const response = await fetch("/Customer/Index", {
+                method: "GET",
+                headers: {
+                    "Accept": "application/json",
+                    "Authorization": "Bearer " + token  // передача токена в заголовке
+                }
+            });
+                
+    </script>*@
+
 </body>
 </html>
