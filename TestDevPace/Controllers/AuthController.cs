@@ -19,7 +19,7 @@ namespace TestDevPace.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignIn(string email, string password)
+        public async Task<IActionResult> SignInAsync(string email, string password)
         {
             var token = await authService.SignInAsync(email, password);
 
@@ -32,7 +32,7 @@ namespace TestDevPace.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignUp(CustomerModel model)
+        public async Task<IActionResult> SignUpAsync(CustomerModel model)
         {
             await authService.SignUpAsync(model);
             return RedirectToAction("SignIn", "Auth");

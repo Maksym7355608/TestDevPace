@@ -88,7 +88,7 @@ namespace TestDevPace.Business.Services
             return Convert.ToBase64String(encrypted);
         }
 
-        private string Decrypt(string password)
+        public string Decrypt(string password)
         {
             var data = Convert.FromBase64String(password);
             var decrypted = ProtectedData.Unprotect(data, null, DataProtectionScope.LocalMachine);

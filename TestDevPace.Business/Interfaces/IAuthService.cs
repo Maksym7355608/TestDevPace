@@ -11,5 +11,6 @@ namespace TestDevPace.Business.Interfaces
     {
         Task<string> SignInAsync(string username, string password);
         Task SignUpAsync(CustomerModel model);
+        string Decrypt(string password);
     }
 }

@@ -3,7 +3,7 @@
 @model IEnumerable<CustomerModel>
 
 @{
-    
+    SearchAndSort searchAndSort = new SearchAndSort();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -15,22 +15,30 @@
 </head>
 <body>
     <h1>DevPace Test Task</h1>
-    <a href="C:\Users\mmajo\Documents\Верстка\signIn.html">Logut</a><br><br>
-    <input type="search" name="searchTextBox" placeholder="Input Value">
-    <input type="button" name="searchButton" value="Search"> <br><br>
-    <select>
-        <option>Choose type of sorting</option>
-        <option>Ascending</option>
-        <option>Descending</option>
-    </select>
-    <select>
-        <option>Choose category of sorting and searching</option>
-        <option>Id</option>
-        <option>Name</option>
-        <option>Company Name</option>
-        <option>Email</option>
-    </select>
-    <br><br>
+    <a href="/Auth/SignIn">Logut</a>
+    <br>
+    <br>
+
+    <form action="/Customer/Sorted" method="post">
+        <input type="search" name="text" placeholder="Input Value">
+        <input type="submit" name="searchButton" value="Search"> <br><br>
+
+        <select name="SortType">
+            <option value="null">Choose type of sorting</option>
+            <option value="Ascending">Ascending</option>
+            <option value="Descending">Descending</option>
+        </select>
+        <select name="Category">
+            <option value="null">Choose category of sorting and searching</option>
+            <option value="Id">Id</option>
+            <option value="Name">Name</option>
+            <option value="CompanyName">Company Name</option>
+            <option value="Email">Email</option>
+        </select>
+
+    </form>
+    <br>
+    <br>
     <h3>Info about Customers</h3>
     <table border="1px">
         <tr>
@@ -41,16 +49,24 @@
             <td>Email</td>
             <td>Change</td>
         </tr>
-        @foreach(var customer in Model)
+        @foreach (var customer in Model)
         {
+
+            <form>
             <tr>
-            <td>@customer.Id</td>
-            <td>@customer.Name</td>
-            <td>@customer.CompanyName</td>
-            <td>@customer.Phone</td>
-            <td>@customer.Email</td>
-            <td><input type="button" name="buttonUpdate" value="Update">  <input type="button" name="buttonDelete" value="Delete"></td>
-        </tr>
+                <td><input type="hidden" name="id" value="@customer.Id">@customer.Id</td>
+                <td>@customer.Name</td>
+                <td>@customer.CompanyName</td>
+                <td>@customer.Phone</td>
+                <td>@customer.Email</td>
+                <td>
+                    <input type="submit" name="buttonUpdate" value="Update" formaction="/Customer/Update" formmethod="get">
+                    <input type="submit" name="Delete" value="Delete" formaction="/Customer/Delete" formmethod="get">
+                </td>
+            </tr>
+            </form>
+
+
         }
     </table>
 </body>
