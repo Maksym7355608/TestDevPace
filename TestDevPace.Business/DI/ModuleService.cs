@@ -23,6 +23,7 @@ namespace TestDevPace.Business.DI
             services.AddSingleton<IMapper>(new Mapper(new MapperConfiguration(cfg =>
                 cfg.AddProfile<MapperProfile>())));
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IAuthService, AuthService>();
         }
     }
 }

@@ -1,0 +1,58 @@
+﻿@using TestDevPace.Business.Models
+
+@model IEnumerable<CustomerModel>
+
+@{
+    
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+</head>
+<body>
+    <h1>DevPace Test Task</h1>
+    <a href="C:\Users\mmajo\Documents\Верстка\signIn.html">Logut</a><br><br>
+    <input type="search" name="searchTextBox" placeholder="Input Value">
+    <input type="button" name="searchButton" value="Search"> <br><br>
+    <select>
+        <option>Choose type of sorting</option>
+        <option>Ascending</option>
+        <option>Descending</option>
+    </select>
+    <select>
+        <option>Choose category of sorting and searching</option>
+        <option>Id</option>
+        <option>Name</option>
+        <option>Company Name</option>
+        <option>Email</option>
+    </select>
+    <br><br>
+    <h3>Info about Customers</h3>
+    <table border="1px">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Company</td>
+            <td>Phone</td>
+            <td>Email</td>
+            <td>Change</td>
+        </tr>
+        @foreach(var customer in Model)
+        {
+            <tr>
+            <td>@customer.Id</td>
+            <td>@customer.Name</td>
+            <td>@customer.CompanyName</td>
+            <td>@customer.Phone</td>
+            <td>@customer.Email</td>
+            <td><input type="button" name="buttonUpdate" value="Update">  <input type="button" name="buttonDelete" value="Delete"></td>
+        </tr>
+        }
+    </table>
+</body>
+</html>
+

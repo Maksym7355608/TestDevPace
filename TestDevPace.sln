@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDevPace.Data", "TestDev
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDevPace.Business", "TestDevPace.Business\TestDevPace.Business.csproj", "{40E5D8BB-967F-4BB3-8F64-B9585C9613CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDevPace", "TestDevPace\TestDevPace.csproj", "{C83C0371-3A2A-4B70-87C3-A64E72A408C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDevPace", "TestDevPace\TestDevPace.csproj", "{C83C0371-3A2A-4B70-87C3-A64E72A408C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

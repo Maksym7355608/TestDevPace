@@ -27,7 +27,7 @@ namespace TestDevPace.Business.Infrastructure.Validation
 
         public static bool IsPasswordCorrect(this string password)
         {
-            return password != null || password.Length > 8;
+            return password != null && password.Length >= 8;
         }
     }
 }
